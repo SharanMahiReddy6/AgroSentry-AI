@@ -1,0 +1,8 @@
+backend/storage/
+__pycache__/
+*.pyc
+*.pth
+*.zip
+.env
+node_modules/
+venv/
