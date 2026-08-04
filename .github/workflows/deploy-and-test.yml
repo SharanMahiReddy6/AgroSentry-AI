@@ -27,9 +27,6 @@ jobs:
   build-and-deploy:
     name: Build & Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       # Stage 1: Repository Checkout
       - name: Stage 1 - Repository Checkout
@@ -39,7 +36,7 @@ jobs:
       - name: Stage 2 - Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
           cache-dependency-path: 'frontend/package-lock.json'
 
@@ -52,7 +49,7 @@ jobs:
       - name: Stage 4 - Static Analysis (Typecheck & Lint)
         working-directory: frontend
         run: |
-          npm run lint --if-present || echo "Linting finished with warnings"
+          npm run lint --if-present || echo "Linting completed with warnings"
 
       # Stage 3: Build Application for GitHub Pages
       - name: Stage 3 - Build Application (Static Export)
@@ -67,20 +64,22 @@ jobs:
           # Create 404 fallback for SPA client-side routing
           cp out/index.html out/404.html || true
 
-      # Stage 5: Deploy to GitHub Pages
-      - name: Stage 5 - Setup GitHub Pages
-        uses: actions/configure-pages@v5
+      # Stage 5: Deploy to GitHub Pages via gh-pages branch (Universal & Permission-Safe)
+      - name: Stage 5 - Deploy to GitHub Pages Branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          enablement: true
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./frontend/out
+          publish_branch: gh-pages
+          force_orphan: true
 
-      - name: Stage 5 - Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
+      # Stage 5b: Also upload artifact for E2E testing job
+      - name: Stage 5b - Upload Build Output Artifact
+        uses: actions/upload-artifact@v4
         with:
-          path: 'frontend/out'
-
-      - name: Stage 5 - Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          name: frontend-build-out
+          path: frontend/out/
+          retention-days: 7
 
   # ====================================================
   # LIVE E2E SELENIUM AUTOMATION TESTING
@@ -93,6 +92,13 @@ jobs:
       # Stage 1: Repository Checkout
       - name: Stage 1 - Repository Checkout
         uses: actions/checkout@v4
+
+      # Download frontend build for fallback validation
+      - name: Stage 1b - Download Frontend Build Output
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-build-out
+          path: frontend/out
 
       # Stage 2: Python & Chrome Setup
       - name: Stage 2 - Setup Python
