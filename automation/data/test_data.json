@@ -1,0 +1,66 @@
+{
+  "credentials": {
+    "admin": {
+      "email": "mahiworkmail6@gmail.com",
+      "password": "Mahi@Admin6",
+      "name": "Mahi Admin",
+      "role": "admin"
+    },
+    "valid_user": {
+      "email": "farmer.test@agrosentry.org",
+      "password": "SecurePassword123!",
+      "name": "Ramesh Kumar",
+      "role": "farmer"
+    },
+    "invalid_users": [
+      { "email": "wrong.user@agrosentry.org", "password": "WrongPassword99!" },
+      { "email": "nonexistent@fake.io", "password": "DummyPass123$" }
+    ]
+  },
+  "malicious_inputs": [
+    "<script>alert('xss')</script>",
+    "' OR '1'='1' --",
+    "admin' --",
+    "\" OR \"\"=\"",
+    "../../../../etc/passwd",
+    "javascript:void(0)"
+  ],
+  "boundary_passwords": {
+    "too_short": "123",
+    "too_long": "a" * 128,
+    "no_number": "Abcdefgh!",
+    "no_special": "Abcdefgh1"
+  },
+  "viewports": [
+    { "name": "Desktop 4K", "width": 3840, "height": 2160 },
+    { "name": "Desktop Full HD", "width": 1920, "height": 1080 },
+    { "name": "Desktop HD", "width": 1366, "height": 768 },
+    { "name": "Laptop", "width": 1440, "height": 900 },
+    { "name": "Tablet Landscape", "width": 1024, "height": 768 },
+    { "name": "Tablet Portrait", "width": 768, "height": 1024 },
+    { "name": "Mobile Large", "width": 414, "height": 896 },
+    { "name": "Mobile Standard", "width": 375, "height": 812 },
+    { "name": "Mobile Small", "width": 320, "height": 568 }
+  ],
+  "crops": [
+    "Tomato",
+    "Potato",
+    "Corn (Maize)",
+    "Apple",
+    "Rice",
+    "Wheat",
+    "Grape",
+    "Pepper Bell"
+  ],
+  "diseases": [
+    "Tomato Early Blight",
+    "Tomato Late Blight",
+    "Tomato Yellow Leaf Curl",
+    "Potato Early Blight",
+    "Potato Late Blight",
+    "Corn Common Rust",
+    "Apple Black Rot",
+    "Pepper Bacterial Spot"
+  ],
+  "languages": ["en", "hi", "te", "ta", "kn", "es", "fr"]
+}

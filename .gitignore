@@ -43,3 +43,5 @@ scratch_test.py
 reset_back.py
 fix_imports.py
 backend/check_training.py
+Test Results/
+automation/reports/

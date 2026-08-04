@@ -1,0 +1,29 @@
+{
+  "project_name": "AgroSentry-AI",
+  "version": "1.0.0",
+  "environment": "production-pages",
+  "default_base_url": "https://sharanmahireddy6.github.io/AgroSentry-AI/",
+  "browser": {
+    "name": "chrome",
+    "headless": true,
+    "window_size": {
+      "width": 1920,
+      "height": 1080
+    },
+    "page_load_timeout_sec": 30,
+    "implicit_wait_sec": 10,
+    "explicit_wait_sec": 15
+  },
+  "reporting": {
+    "excel_report_name": "Automation_Test_Report.xlsx",
+    "html_report_name": "execution-report.html",
+    "dashboard_name": "dashboard.html",
+    "json_report_name": "execution-results.json",
+    "summary_markdown_name": "summary.md",
+    "retention_days": 30
+  },
+  "thresholds": {
+    "min_pass_percentage": 95.0,
+    "max_critical_failure_rate": 5.0
+  }
+}

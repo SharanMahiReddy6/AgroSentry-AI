@@ -1,0 +1,8 @@
+[2026-08-04 21:54:35] [INFO] [ExcelReportGenerator:173] - Generated main Excel report: D:\AgroSentry Backend\Test Results\Excel\Automation_Test_Report.xlsx
+[2026-08-04 21:54:35] [INFO] [ExcelReportGenerator:209] - Generated Failed Excel report: D:\AgroSentry Backend\Test Results\Excel\Failed_Test_Cases.xlsx
+[2026-08-04 21:54:35] [INFO] [ExcelReportGenerator:209] - Generated Passed Excel report: D:\AgroSentry Backend\Test Results\Excel\Passed_Test_Cases.xlsx
+[2026-08-04 21:54:35] [INFO] [ExcelReportGenerator:246] - Generated summary Excel report: D:\AgroSentry Backend\Test Results\Excel\Summary_Report.xlsx
+[2026-08-04 21:54:35] [INFO] [HTMLReportGenerator:305] - Generated HTML execution report: D:\AgroSentry Backend\Test Results\HTML\execution-report.html
+[2026-08-04 21:54:35] [INFO] [HTMLReportGenerator:419] - Generated HTML dashboard report: D:\AgroSentry Backend\Test Results\HTML\dashboard.html
+[2026-08-04 21:54:35] [INFO] [JSONReportGenerator:27] - Generated JSON report: D:\AgroSentry Backend\Test Results\JSON\execution-results.json
+[2026-08-04 21:54:35] [INFO] [SummaryGenerator:130] - Generated summary markdown: D:\AgroSentry Backend\Test Results\Summary\summary.md
