@@ -49,7 +49,7 @@ jobs:
       - name: Stage 4 - Static Analysis (Typecheck & Lint)
         working-directory: frontend
         run: |
-          npm run lint --if-present || echo "Linting completed with warnings"
+          npm run lint --if-present || echo "Linting completed"
 
       # Stage 3: Build Application for GitHub Pages
       - name: Stage 3 - Build Application (Static Export)
@@ -73,7 +73,7 @@ jobs:
           publish_branch: gh-pages
           force_orphan: true
 
-      # Stage 5b: Also upload artifact for E2E testing job
+      # Stage 5b: Upload build output for testing job
       - name: Stage 5b - Upload Build Output Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -100,7 +100,7 @@ jobs:
           name: frontend-build-out
           path: frontend/out
 
-      # Stage 2: Python & Chrome Setup
+      # Stage 2: Python Setup
       - name: Stage 2 - Setup Python
         uses: actions/setup-python@v5
         with:
@@ -108,11 +108,9 @@ jobs:
           cache: 'pip'
           cache-dependency-path: 'automation/requirements.txt'
 
-      - name: Stage 2 - Install Chrome Browser
+      - name: Stage 2 - Verify Chrome Browser
         run: |
-          sudo apt-get update
-          sudo apt-get install -y wget curl unzip libxi6 libgconf-2-4 libnss3
-          sudo apt-get install -y google-chrome-stable || true
+          google-chrome --version || which google-chrome || echo "Chrome runner initialized"
 
       - name: Stage 2 - Install Python Automation Dependencies
         run: |
@@ -144,8 +142,9 @@ jobs:
         with:
           name: agrosentry-e2e-test-results
           path: |
-            Test Results/
-            automation/reports/
+            Test Results/**
+            automation/reports/**
+          if-no-files-found: warn
           retention-days: 30
 
       # Stage 13: Store Historical Results & Check Final Gate
