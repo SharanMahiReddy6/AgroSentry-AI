@@ -62,7 +62,7 @@ def run_all_tests(driver) -> list[dict]:
             f"TC-NAV-{idx:03d}",
             f"Verify direct URL navigation to {desc}",
             "P1-Critical" if idx <= 3 else "P2-High",
-            f"1. Navigate directly to /{p}\n2. Verify page loads and response is healthy",
+            f"1. Navigate directly to /{path}\n2. Verify page loads and response is healthy",
             f"{desc} renders without browser crashes or blank screen",
             make_nav_action(path)
         ))

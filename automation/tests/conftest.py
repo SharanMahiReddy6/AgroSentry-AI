@@ -2,11 +2,11 @@ import pytest
 import time
 from automation.drivers.driver_factory import DriverFactory
 from automation.utils.screenshot_helper import ScreenshotHelper
-from automation.config.config import BASE_URL
+from automation.config import config
 
 @pytest.fixture(scope="session")
 def base_url():
-    return BASE_URL
+    return config.BASE_URL
 
 @pytest.fixture(scope="function")
 def driver():

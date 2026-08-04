@@ -50,7 +50,7 @@ def run_all_tests(driver) -> list[dict]:
             tc_num,
             f"Verify form control interaction & validation cycle #{i}",
             "P1-Critical" if i <= 10 else ("P2-High" if i <= 30 else "P3-Medium"),
-            f"1. Target input form element #{idx}\n2. Perform submit/reset and check feedback",
+            f"1. Target input form element #{i}\n2. Perform submit/reset and check feedback",
             "Form validates and handles user input correctly",
             make_form_action(i)
         ))

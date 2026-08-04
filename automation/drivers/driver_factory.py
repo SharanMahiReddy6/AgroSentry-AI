@@ -22,6 +22,7 @@ class DriverFactory:
 
         if target_browser == "chrome":
             options = ChromeOptions()
+            options.page_load_strategy = "eager"
             if is_headless:
                 options.add_argument("--headless=new")
             options.add_argument("--no-sandbox")
@@ -33,6 +34,9 @@ class DriverFactory:
             options.add_argument("--ignore-certificate-errors")
             options.add_argument("--allow-running-insecure-content")
             options.add_argument("--remote-allow-origins=*")
+            options.add_argument("--disable-background-timer-throttling")
+            options.add_argument("--disable-backgrounding-occluded-windows")
+            options.add_argument("--disable-renderer-backgrounding")
             options.add_argument("--user-agent=AgroSentry-Selenium-E2E-Automation/1.0")
 
             # Enable browser console logging

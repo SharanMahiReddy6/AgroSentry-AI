@@ -147,6 +147,14 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
+      # Stage 12: Publish Step Summary to GitHub Actions UI
+      - name: Stage 12 - Publish GitHub Actions Step Summary
+        if: always()
+        run: |
+          if [ -f "Test Results/Summary/summary.md" ]; then
+            cat "Test Results/Summary/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       # Stage 13: Store Historical Results & Check Final Gate
       - name: Stage 13 - Store Historical Test Execution Evidence
         if: always()

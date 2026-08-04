@@ -4,7 +4,7 @@ const isExport = process.env.OUTPUT_EXPORT === 'true' || process.env.GITHUB_ACTI
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 const nextConfig: NextConfig = {
-  ...(isExport ? { output: 'export' } : { output: 'standalone' }),
+  output: 'export',
   images: {
     unoptimized: true,
   },

@@ -48,7 +48,7 @@ def run_all_tests(driver) -> list[dict]:
             tc_num,
             f"Verify accessibility WCAG 2.1 AA requirement #{i}",
             "P2-High" if i <= 10 else "P3-Medium",
-            f"1. Audit DOM semantic elements for rule #{idx}\n2. Check ARIA attributes, contrast & focus indicators",
+            f"1. Audit DOM semantic elements for rule #{i}\n2. Check ARIA attributes, contrast & focus indicators",
             "Element adheres to WCAG accessibility standards",
             make_a11y_action(i)
         ))

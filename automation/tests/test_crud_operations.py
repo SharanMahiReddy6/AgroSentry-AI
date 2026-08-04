@@ -48,7 +48,7 @@ def run_all_tests(driver) -> list[dict]:
             tc_num,
             f"Verify entity Create/Read/Update/Delete scenario #{i}",
             "P1-Critical" if i <= 15 else "P2-High",
-            f"1. Perform operational mutation test #{idx}\n2. Verify state persistence and UI sync",
+            f"1. Perform operational mutation test #{i}\n2. Verify state persistence and UI sync",
             "Entity lifecycle action completed and reflected in state",
             make_crud_action(i)
         ))

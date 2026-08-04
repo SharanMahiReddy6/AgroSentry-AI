@@ -2,7 +2,6 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from automation.pages.login_page import LoginPage
-from automation.config.config import BASE_URL
 
 MODULE_NAME = "Authentication"
 
@@ -199,7 +198,7 @@ def run_all_tests(driver) -> list[dict]:
             tc_num,
             sub_name,
             "P2-High" if i <= 30 else "P3-Medium",
-            f"1. Navigate to auth endpoint\n2. Validate security requirement #{idx}",
+            f"1. Navigate to auth endpoint\n2. Validate security requirement #{i}",
             "Auth component fulfills security & layout specifications",
             make_action(i)
         ))

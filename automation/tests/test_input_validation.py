@@ -48,7 +48,7 @@ def run_all_tests(driver) -> list[dict]:
             tc_num,
             f"Verify input sanitization & constraint boundary rule #{i}",
             "P1-Critical" if i <= 10 else ("P2-High" if i <= 25 else "P3-Medium"),
-            f"1. Input boundary/special character test vector #{idx}\n2. Verify client-side rejection/sanitization",
+            f"1. Input boundary/special character test vector #{i}\n2. Verify client-side rejection/sanitization",
             "Input constraints prevent corrupt or malicious payload entry",
             make_inp_action(i)
         ))

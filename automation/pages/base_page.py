@@ -5,24 +5,37 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
-from automation.config.config import BASE_URL, EXPLICIT_WAIT
+from automation.config import config
 from automation.utils.logger import get_logger
 from automation.utils.screenshot_helper import ScreenshotHelper
 
+EXPLICIT_WAIT = config.EXPLICIT_WAIT
 logger = get_logger("BasePage")
 
 class BasePage:
     def __init__(self, driver: WebDriver, path: str = ""):
         self.driver = driver
-        self.base_url = BASE_URL.rstrip("/") + "/"
         self.path = path.lstrip("/")
-        self.url = urljoin(self.base_url, self.path) if self.path else self.base_url
-        self.wait = WebDriverWait(driver, EXPLICIT_WAIT)
+        self.wait = WebDriverWait(driver, config.EXPLICIT_WAIT)
+
+    @property
+    def base_url(self) -> str:
+        return config.BASE_URL.rstrip("/") + "/"
+
+    @property
+    def url(self) -> str:
+        return urljoin(self.base_url, self.path) if self.path else self.base_url
 
     def open(self, custom_path: str = None) -> "BasePage":
         target = urljoin(self.base_url, custom_path.lstrip("/")) if custom_path else self.url
         logger.info(f"Navigating to page: {target}")
-        self.driver.get(target)
+        try:
+            self.driver.get(target)
+        except TimeoutException:
+            try:
+                self.driver.execute_script("window.stop();")
+            except Exception:
+                pass
         self.wait_for_ready_state()
         return self
 

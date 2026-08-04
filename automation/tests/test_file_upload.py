@@ -48,7 +48,7 @@ def run_all_tests(driver) -> list[dict]:
             tc_num,
             f"Verify file upload handler & mime-type validation scenario #{i}",
             "P1-Critical" if i <= 5 else "P2-High",
-            f"1. Test file upload control constraint #{idx}\n2. Verify image format parsing & preview rendering",
+            f"1. Test file upload control constraint #{i}\n2. Verify image format parsing & preview rendering",
             "File uploader processes valid images (.jpg, .png) and rejects invalid files",
             make_upl_action(i)
         ))

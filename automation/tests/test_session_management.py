@@ -48,7 +48,7 @@ def run_all_tests(driver) -> list[dict]:
             tc_num,
             f"Verify authentication token lifecycle & session state rule #{i}",
             "P1-Critical" if i <= 5 else "P2-High",
-            f"1. Mutate session storage token state #{idx}\n2. Verify client persistence & session boundary",
+            f"1. Mutate session storage token state #{i}\n2. Verify client persistence & session boundary",
             "Session tokens stored securely and cleared on invalidation",
             make_sess_action(i)
         ))

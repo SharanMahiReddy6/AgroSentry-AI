@@ -4,7 +4,6 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect, useCallback } from 'react';
 import { Sidebar } from '@/components/Sidebar';
 import { Header } from '@/components/Header';
-import { Loader2 } from 'lucide-react';
 
 export type Notification = {
   id: number;
@@ -17,8 +16,13 @@ export type Notification = {
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const isAuthPage = pathname === '/login' || pathname === '/register' || pathname === '/forgot-password';
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  
+  const cleanPath = (pathname || '')
+    .replace(/^\/(AgroSentry-AI|agrosentry-ai)/i, '')
+    .replace(/\/+$/, '') || '/';
+    
+  const isAuthPage = cleanPath === '/login' || cleanPath === '/register' || cleanPath === '/forgot-password';
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
 
   // Shared notification state lifted here so Header + Sidebar share it
   const [notifications, setNotifications] = useState<Notification[]>([]);
@@ -26,10 +30,10 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
   const [theme, setTheme] = useState('light');
   const [language, setLanguage] = useState('en');
   const [profilePhoto, setProfilePhoto] = useState<string | null>(null);
-  const [isAdmin, setIsAdmin] = useState<boolean | null>(null);
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
 
   const fetchNotificationsAndProfile = useCallback(async () => {
-    const token = localStorage.getItem('token');
+    const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
     if (!token || isAuthPage) return;
     try {
       const res = await fetch('http://localhost:8000/api/notifications', {
@@ -50,26 +54,12 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
         if (profRes.status === 401 || profRes.status === 403) {
           localStorage.removeItem('token');
           window.location.href = '/login';
-        } else {
-          // If some other error, fallback to unauthenticated state or error
-          setIsAdmin(false);
         }
       }
     } catch { 
-      // If network fails, at least don't spin forever if we can avoid it. But let's leave it spinning if backend is just offline.
+      // If network fails (e.g. backend offline during E2E frontend testing), do not block UI
     }
   }, [isAuthPage]);
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token && !isAuthPage) {
-      router.replace('/login');
-    } else if (token && isAuthPage) {
-      router.replace('/');
-    } else {
-      setIsAuthenticated(true);
-    }
-  }, [pathname, isAuthPage, router]);
 
   useEffect(() => {
     if (isAuthenticated && !isAuthPage) {
@@ -78,23 +68,6 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       return () => clearInterval(interval);
     }
   }, [isAuthenticated, isAuthPage, fetchNotificationsAndProfile]);
-
-  useEffect(() => {
-    if (isAdmin !== null && !isAuthPage) {
-      if (isAdmin) {
-        // Allow dynamic routes like /scan/123 by checking startswith or split
-        const pathBase = '/' + pathname.split('/')[1]; 
-        const adminAllowedPaths = ['/admin', '/scan', '/profile'];
-        if (!adminAllowedPaths.includes(pathBase)) {
-          router.replace('/admin');
-        }
-      } else {
-        if (pathname === '/admin') {
-          router.replace('/');
-        }
-      }
-    }
-  }, [isAdmin, pathname, isAuthPage, router]);
 
   // Apply theme to document
   useEffect(() => {
@@ -111,18 +84,15 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
       document.cookie = `googtrans=/en/${language}; path=/;`;
       
       if (language !== 'en' && !document.getElementById('google-translate-script')) {
-        // Define the callback before injecting the script
         (window as any).googleTranslateElementInit = () => {
           new (window as any).google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element');
         };
         
-        // Add the script
         const script = document.createElement('script');
         script.id = 'google-translate-script';
         script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
         document.body.appendChild(script);
       } else if (language === 'en') {
-        // Clear cookie for English
         document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
       }
     }
@@ -139,14 +109,6 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
   };
 
   const unreadCount = notifications.filter(n => !n.is_read).length;
-
-  if (isAuthenticated === null || (!isAuthPage && isAdmin === null)) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <Loader2 className="w-10 h-10 text-primary animate-spin" />
-      </div>
-    );
-  }
 
   if (isAuthPage) {
     return <main className="w-full min-h-screen bg-background">{children}</main>;

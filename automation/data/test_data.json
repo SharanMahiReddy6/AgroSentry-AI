@@ -27,7 +27,7 @@
   ],
   "boundary_passwords": {
     "too_short": "123",
-    "too_long": "a" * 128,
+    "too_long": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "no_number": "Abcdefgh!",
     "no_special": "Abcdefgh1"
   },

@@ -71,7 +71,7 @@ def run_all_tests(driver) -> list[dict]:
             tc_num,
             f"Verify responsive media query & touch element spacing rule #{i}",
             "P2-High" if i <= 15 else "P3-Medium",
-            f"1. Inspect breakpoint behavior #{idx}\n2. Verify touch targets >= 44x44px and fluid scaling",
+            f"1. Inspect breakpoint behavior #{i}\n2. Verify touch targets >= 44x44px and fluid scaling",
             "Fluid container behavior aligns with mobile-first specifications",
             make_resp_check(i)
         ))

@@ -48,7 +48,7 @@ def run_all_tests(driver) -> list[dict]:
             tc_num,
             f"Verify error boundary & exception resilience scenario #{i}",
             "P1-Critical" if i <= 5 else "P2-High",
-            f"1. Provoke error state condition #{idx}\n2. Verify fallback UI, error message, and telemetry",
+            f"1. Provoke error state condition #{i}\n2. Verify fallback UI, error message, and telemetry",
             "Application displays friendly error state and remains fully recoverable",
             make_err_action(i)
         ))

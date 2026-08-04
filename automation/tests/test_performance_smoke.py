@@ -51,7 +51,7 @@ def run_all_tests(driver) -> list[dict]:
             tc_num,
             f"Verify performance latency & client render SLA constraint #{i}",
             "P1-Critical" if i <= 5 else "P2-High",
-            f"1. Measure page navigation and render duration #{idx}\n2. Compare against performance budget (<5.0s)",
+            f"1. Measure page navigation and render duration #{i}\n2. Compare against performance budget (<5.0s)",
             "Client response time meets latency thresholds and TTFB targets",
             make_perf_action(i)
         ))

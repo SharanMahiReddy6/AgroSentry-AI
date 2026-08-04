@@ -50,7 +50,7 @@ def run_all_tests(driver) -> list[dict]:
             tc_num,
             f"Verify UI design system token & visual rendering spec #{i}",
             "P2-High" if i <= 15 else "P3-Medium",
-            f"1. Render UI components\n2. Inspect CSS typography, theme tokens & layout #{idx}",
+            f"1. Render UI components\n2. Inspect CSS typography, theme tokens & layout #{i}",
             "Visual element satisfies design specifications and responsiveness",
             make_ui_action(i)
         ))
