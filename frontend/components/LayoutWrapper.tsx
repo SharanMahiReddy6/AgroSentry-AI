@@ -1,6 +1,6 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect, useCallback } from 'react';
 import { Sidebar } from '@/components/Sidebar';
 import { Header } from '@/components/Header';
@@ -15,14 +15,12 @@ export type Notification = {
 
 export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const router = useRouter();
   
   const cleanPath = (pathname || '')
     .replace(/^\/(AgroSentry-AI|agrosentry-ai)/i, '')
     .replace(/\/+$/, '') || '/';
     
   const isAuthPage = cleanPath === '/login' || cleanPath === '/register' || cleanPath === '/forgot-password';
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
 
   // Shared notification state lifted here so Header + Sidebar share it
   const [notifications, setNotifications] = useState<Notification[]>([]);
@@ -62,12 +60,12 @@ export default function LayoutWrapper({ children }: { children: React.ReactNode 
   }, [isAuthPage]);
 
   useEffect(() => {
-    if (isAuthenticated && !isAuthPage) {
+    if (!isAuthPage) {
       fetchNotificationsAndProfile();
       const interval = setInterval(fetchNotificationsAndProfile, 10000);
       return () => clearInterval(interval);
     }
-  }, [isAuthenticated, isAuthPage, fetchNotificationsAndProfile]);
+  }, [isAuthPage, fetchNotificationsAndProfile]);
 
   // Apply theme to document
   useEffect(() => {

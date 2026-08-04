@@ -120,6 +120,7 @@ jobs:
       # Stage 6 & 7: Wait for Deployment & Deployment Verification
       - name: Stage 6 & 7 - Wait & Verify Live Deployment
         env:
+          PYTHONPATH: .
           BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
         run: |
           python automation/utils/deployment_verifier.py
@@ -127,6 +128,7 @@ jobs:
       # Stage 8, 9, 10, 12: Run Selenium E2E Tests against LIVE Deployment
       - name: Stage 8 - Execute 400+ Selenium E2E Test Cases Against LIVE Deployment
         env:
+          PYTHONPATH: .
           BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
           BROWSER: chrome
           HEADLESS: "true"
