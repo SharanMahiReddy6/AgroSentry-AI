@@ -16,3 +16,6 @@ httpx==0.25.1
 numpy<2.0.0
 opencv-python-headless
 matplotlib
+aiosmtplib>=3.0.0
+firebase-admin==6.5.0
+resend

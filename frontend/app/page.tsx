@@ -1,110 +1,183 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { 
+  Sprout, 
+  ArrowRight, 
+  Clock, 
+  AlertCircle, 
+  CheckCircle2,
+  BookOpen,
+  ChevronRight
+} from 'lucide-react';
+import { cn } from '@/app/utils';
 
 export default function Dashboard() {
-  return (
-    <div className="animate-fade">
-      {/* Header Section */}
-      <header style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '0.25rem' }}>Good morning, Mahi! 👋</h1>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>Here's what's happening with your crops today.</p>
-        </div>
-        <Link href="/scan" className="btn btn-primary" style={{ padding: '1rem 2rem' }}>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" /><circle cx="12" cy="13" r="4" />
-          </svg>
-          Start New Scan
-        </Link>
-      </header>
+  const [stats, setStats] = useState({ total: 0, healthy: 0, issues: 0 });
+  const [recentScans, setRecentScans] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
 
-      {/* Stats Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', marginBottom: '3rem' }}>
-        
-        {/* Watering Schedule Widget */}
-        <div className="card">
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
-            <h3 style={{ fontSize: '1.1rem' }}>Watering Schedule</h3>
-            <span style={{ padding: '0.25rem 0.75rem', background: 'var(--bg-soft)', borderRadius: '20px', fontSize: '0.8rem', color: 'var(--primary)', fontWeight: '700' }}>In 2 hours</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-            <div style={{ fontSize: '2.5rem' }}>💧</div>
-            <div>
-              <div style={{ fontSize: '1.2rem', fontWeight: '700' }}>Tomato Section A</div>
-              <div style={{ color: 'var(--text-secondary)', fontSize: '0.9rem' }}>Optimal time: 10:30 AM</div>
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8000/api/scans/history', {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setRecentScans(data.slice(0, 4));
+          
+          const total = data.length;
+          const healthy = data.filter((s: any) => s.prediction.toLowerCase().includes('healthy')).length;
+          setStats({
+            total,
+            healthy,
+            issues: total - healthy
+          });
+        }
+      } catch (error) {
+        console.error('Failed to fetch stats', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return (
+    <div className="space-y-8 animate-in">
+      {/* Welcome Banner */}
+      <div className="relative overflow-hidden bg-primary rounded-2xl p-8 text-white shadow-xl shadow-primary/20">
+        <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold">Good morning, Mahi!</h1>
+            <p className="text-primary-light opacity-90 max-w-md">
+              Your crops are looking good today. We've analyzed {stats.total} scans so far this season.
+            </p>
+            <div className="pt-4">
+              <Link href="/scan" className="btn bg-white text-primary hover:bg-gray-50 px-8 py-3 rounded-xl inline-flex items-center gap-2 group">
+                Start New Scan
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </div>
-          <div style={{ height: '8px', background: 'var(--bg-soft)', borderRadius: '4px', overflow: 'hidden' }}>
-            <div style={{ width: '75%', height: '100%', background: 'var(--primary-light)' }}></div>
+          <div className="hidden md:block">
+            <div className="w-48 h-48 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-md">
+              <Sprout size={80} className="text-white" />
+            </div>
           </div>
         </div>
-
-        {/* Crop Health Widget */}
-        <div className="card">
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
-            <h3 style={{ fontSize: '1.1rem' }}>Overall Health</h3>
-            <span style={{ color: 'var(--primary)', fontWeight: '700' }}>92%</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'flex-end', gap: '0.5rem', marginBottom: '1rem' }}>
-            {[40, 60, 45, 90, 85, 92].map((h, i) => (
-              <div key={i} style={{ flex: 1, height: `${h}px`, background: i === 5 ? 'var(--primary)' : 'var(--bg-soft)', borderRadius: '4px' }}></div>
-            ))}
-          </div>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Your crops are performing 12% better than last month.</p>
-        </div>
-
-        {/* Rotation Alert Widget */}
-        <div className="card" style={{ background: 'var(--primary)', color: 'white' }}>
-          <h3 style={{ color: 'white', fontSize: '1.1rem', marginBottom: '1rem' }}>Crop Rotation Tip</h3>
-          <p style={{ fontSize: '0.95rem', marginBottom: '1.5rem', opacity: 0.9 }}>
-            Consider planting legumes in Plot B after this harvest to naturally restore soil nitrogen levels.
-          </p>
-          <button className="btn" style={{ background: 'rgba(255,255,255,0.2)', color: 'white', width: '100%', border: '1px solid rgba(255,255,255,0.3)' }}>
-            Learn More
-          </button>
-        </div>
-
+        {/* Decorative Circles */}
+        <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-white/5 rounded-full" />
+        <div className="absolute right-20 -top-10 w-32 h-32 bg-white/10 rounded-full" />
       </div>
 
-      {/* Recent Scans Section */}
-      <section>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
-          <h2 style={{ fontSize: '1.5rem' }}>Recent Activity</h2>
-          <Link href="/history" style={{ color: 'var(--primary)', fontWeight: '600', textDecoration: 'none' }}>View all history →</Link>
-        </div>
-        
-        <div className="card" style={{ padding: 0, overflow: 'hidden' }}>
-          {[
-            { id: 1, plant: 'Tomato', disease: 'Healthy', date: '2 hours ago', status: 'Success' },
-            { id: 2, plant: 'Potato', disease: 'Late Blight', date: 'Yesterday', status: 'Alert' },
-            { id: 3, plant: 'Corn', disease: 'Common Rust', date: '3 days ago', status: 'Alert' },
-          ].map((scan, i) => (
-            <div key={scan.id} style={{ 
-              padding: '1.25rem 2rem', 
-              display: 'flex', 
-              alignItems: 'center', 
-              justifyContent: 'space-between',
-              borderBottom: i === 2 ? 'none' : '1px solid var(--border-soft)',
-              background: i % 2 === 0 ? 'transparent' : 'rgba(0,0,0,0.01)'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: 'var(--bg-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem' }}>
-                  {scan.plant === 'Tomato' ? '🍅' : scan.plant === 'Potato' ? '🥔' : '🌽'}
-                </div>
-                <div>
-                  <div style={{ fontWeight: '700' }}>{scan.plant}</div>
-                  <div style={{ fontSize: '0.85rem', color: scan.disease === 'Healthy' ? 'var(--primary)' : '#d32f2f' }}>{scan.disease}</div>
-                </div>
-              </div>
-              <div style={{ textAlign: 'right' }}>
-                <div style={{ fontSize: '0.9rem', fontWeight: '500' }}>{scan.date}</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-dim)' }}>ID: #SCN-00{scan.id}</div>
-              </div>
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {[
+          { label: 'Total Scans', value: stats.total, icon: Clock, color: 'text-blue-600', bg: 'bg-blue-50' },
+          { label: 'Healthy Crops', value: stats.healthy, icon: CheckCircle2, color: 'text-primary', bg: 'bg-primary-light' },
+          { label: 'Issues Detected', value: stats.issues, icon: AlertCircle, color: 'text-danger', bg: 'bg-red-50' },
+        ].map((stat, i) => (
+          <div key={i} className="card flex items-center gap-4">
+            <div className={cn("p-4 rounded-xl", stat.bg)}>
+              <stat.icon size={24} className={stat.color} />
             </div>
-          ))}
+            <div>
+              <p className="text-sm text-muted font-medium">{stat.label}</p>
+              <h3 className="text-2xl font-bold text-gray-900">{stat.value}</h3>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Recent Scans */}
+        <div className="lg:col-span-2 space-y-4">
+          <div className="flex justify-between items-center">
+            <h2 className="text-xl font-bold text-gray-900">Recent Scans</h2>
+            <Link href="/history" className="text-primary text-sm font-semibold hover:underline">View All History</Link>
+          </div>
+          
+          <div className="space-y-3">
+            {loading ? (
+              Array(3).fill(0).map((_, i) => (
+                <div key={i} className="card animate-pulse h-24 bg-gray-50 border-none" />
+              ))
+            ) : recentScans.length === 0 ? (
+              <div className="card text-center py-12 text-muted">
+                <div className="mb-4 inline-flex items-center justify-center w-12 h-12 bg-gray-50 rounded-full">
+                  <Clock size={20} />
+                </div>
+                <p>No recent scans found.</p>
+                <Link href="/scan" className="text-primary font-semibold hover:underline mt-2 inline-block text-sm">Create your first scan</Link>
+              </div>
+            ) : (
+              recentScans.map((scan) => (
+                <div key={scan.id} className="card flex items-center justify-between p-4 group">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0">
+                      <img 
+                        src={`http://localhost:8000${scan.image_url}`} 
+                        alt="scan" 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        onError={(e: any) => e.target.src = 'https://via.placeholder.com/64?text=🌿'}
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900">{scan.prediction}</h4>
+                      <div className="flex items-center gap-3 mt-1">
+                        <span className="text-xs text-muted font-medium">{scan.crop_type}</span>
+                        <span className="w-1 h-1 bg-gray-300 rounded-full" />
+                        <span className="text-xs text-muted">{new Date(scan.created_at).toLocaleDateString()}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <span className={cn(
+                      "badge",
+                      scan.severity === 'High' ? "bg-red-100 text-red-600" : "bg-green-100 text-primary"
+                    )}>
+                      {scan.severity}
+                    </span>
+                    <ChevronRight size={20} className="text-gray-300 group-hover:text-primary transition-colors" />
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
         </div>
-      </section>
+
+        {/* Quick Tips */}
+        <div className="space-y-4">
+          <h2 className="text-xl font-bold text-gray-900">Expert Tips</h2>
+          <div className="space-y-4">
+            {[
+              { title: 'Optimizing Drip Irrigation', desc: 'Save 30% more water by timing your irrigation...', category: 'Watering' },
+              { title: 'Organic Pest Control', desc: 'Using neem oil can prevent 90% of early blights...', category: 'Protection' },
+              { title: 'Soil PH Management', desc: 'The ideal PH for tomato crops is between 6.0 and 6.8...', category: 'Soil' }
+            ].map((tip, i) => (
+              <div key={i} className="card p-5 space-y-3 cursor-pointer border-none shadow-sm hover:shadow-md">
+                <span className="inline-block px-2 py-1 bg-gray-50 text-gray-600 text-[10px] font-bold uppercase rounded-md tracking-wider">
+                  {tip.category}
+                </span>
+                <h4 className="font-bold text-gray-900 leading-tight">{tip.title}</h4>
+                <p className="text-sm text-muted leading-relaxed line-clamp-2">{tip.desc}</p>
+                <Link href="/tips" className="flex items-center text-primary text-xs font-bold gap-1 mt-2">
+                  Read Full Tip <ArrowRight size={12} />
+                </Link>
+              </div>
+            ))}
+            <Link href="/library" className="flex items-center justify-center gap-2 p-4 w-full text-sm font-bold text-primary bg-primary/5 rounded-xl hover:bg-primary/10 transition-colors">
+              <BookOpen size={16} />
+              Browse Disease Library
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

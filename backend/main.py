@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from api import auth, scans, training
+from api import auth, scans, training, tips, notifications
 from fastapi.staticfiles import StaticFiles
 from database.init_db import init_db
+from core.config import STORAGE_ROOT, ensure_storage_dirs
 
 app = FastAPI(title="AgroAI API", version="1.0.0")
 
@@ -11,10 +12,7 @@ app = FastAPI(title="AgroAI API", version="1.0.0")
 @app.on_event("startup")
 async def startup_event():
     init_db()
-    # Ensure all storage subdirectories exist
-    storage_path = "/app/storage"
-    for sub in ["uploads", "heatmaps", "models", "datasets"]:
-        os.makedirs(os.path.join(storage_path, sub), exist_ok=True)
+    ensure_storage_dirs()
     print("Storage directories verified and ready.")
 
 # Configure CORS for both Web and Mobile access
@@ -30,13 +28,13 @@ app.add_middleware(
 app.include_router(auth.router, prefix="/api")
 app.include_router(scans.router, prefix="/api")
 app.include_router(training.router, prefix="/api")
+app.include_router(tips.router, prefix="/api")
+app.include_router(notifications.router, prefix="/api")
+
 
 # Serve storage directory for images and heatmaps
-STORAGE_DIR = "/app/storage"
-if not os.path.exists(STORAGE_DIR):
-    os.makedirs(STORAGE_DIR, exist_ok=True)
-    os.makedirs(os.path.join(STORAGE_DIR, "uploads"), exist_ok=True)
-    os.makedirs(os.path.join(STORAGE_DIR, "heatmaps"), exist_ok=True)
+STORAGE_DIR = STORAGE_ROOT
+ensure_storage_dirs()
 
 app.mount("/storage", StaticFiles(directory=STORAGE_DIR), name="storage")
 

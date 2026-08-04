@@ -1,8 +1,45 @@
-backend/storage/
-__pycache__/
-*.pyc
-*.pth
+# Ignore everything in storage
+backend/storage/*
+
+# But un-ignore the models folder so git can traverse into it
+!backend/storage/models/
+
+# Ignore all files inside models
+backend/storage/models/*
+
+# Finally, explicitly un-ignore the production model
+!backend/storage/models/production_model.pth
+
+# Ignore all zip files (datasets)
 *.zip
+
+# Ignore all .pth files, but exclude production model globally just in case
+*.pth
+!production_model.pth
+
+# Common ignores
 .env
 node_modules/
+__pycache__/
+*.pyc
 venv/
+.vscode/
+.idea/
+
+# Mobile build artifacts
+mobile/android/build/
+mobile/android/.gradle/
+mobile/.dart_tool/
+mobile/build/
+
+# Frontend build artifacts
+frontend/.next/
+frontend/out/
+
+# Testing & scratch
+.pytest_cache/
+**/scratch/
+scratch_test.py
+reset_back.py
+fix_imports.py
+backend/check_training.py

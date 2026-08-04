@@ -1,0 +1,18 @@
+{
+  "name": "selenium-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "chromedriver": "^149.0.2",
+    "exceljs": "^4.4.0",
+    "selenium-webdriver": "^4.44.0"
+  }
+}

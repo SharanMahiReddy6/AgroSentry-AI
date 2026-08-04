@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
+import { Sidebar } from "@/components/Sidebar";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "AgroSentry - AI Powered Crop Protection",
-  description: "Detect plant diseases instantly using advanced AI.",
+  title: "AgroSentry AI | Smart Crop Diagnostic Platform",
+  description: "AI-powered agricultural disease detection and treatment platform for farmers.",
 };
 
 export default function RootLayout({
@@ -14,19 +17,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-      </head>
-      <body>
-        <div className="app-container">
-          <Sidebar />
-          <main className="main-content">
-            {children}
-          </main>
+      <body className={`${inter.variable} font-sans antialiased`}>
+        <div className="flex">
+          {/* We only show Sidebar on non-auth pages. For simplicity, we check in layout or handle it in page. */}
+          {/* In a real app, you might use a (dashboard) group. Here we will just render it and handle visibility. */}
+          <AppShell>{children}</AppShell>
         </div>
       </body>
     </html>
   );
 }
+
+// Simple wrapper to handle conditional sidebar
+function AppShell({ children }: { children: React.ReactNode }) {
+  // We can't use usePathname in a server component, so we either make this a client component or handle it differently.
+  // For this rebuild, I'll make a client-side layout wrapper.
+  return <LayoutWrapper>{children}</LayoutWrapper>;
+}
+
+import LayoutWrapper from "@/components/LayoutWrapper";

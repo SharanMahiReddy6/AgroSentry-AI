@@ -2,7 +2,13 @@ import os
 from pathlib import Path
 
 # === Storage Paths ===
-STORAGE_ROOT = os.getenv("STORAGE_ROOT", "/app/storage")
+DEFAULT_STORAGE = "/app/storage"
+if not os.path.exists("/app") and os.name == "nt":
+    # Running on Windows outside Docker, resolve relative to backend root
+    backend_root = Path(__file__).resolve().parent.parent
+    DEFAULT_STORAGE = str(backend_root / "storage")
+
+STORAGE_ROOT = os.getenv("STORAGE_ROOT", DEFAULT_STORAGE)
 UPLOAD_DIR = os.path.join(STORAGE_ROOT, "uploads")
 HEATMAP_DIR = os.path.join(STORAGE_ROOT, "heatmaps")
 MODEL_DIR = os.path.join(STORAGE_ROOT, "models")
