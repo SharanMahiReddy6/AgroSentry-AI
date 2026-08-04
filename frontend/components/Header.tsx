@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Bell, Search, User, LogOut, ChevronDown } from 'lucide-react';
-import { cn } from '@/app/utils';
 import { useRouter } from 'next/navigation';
 
 interface HeaderProps {

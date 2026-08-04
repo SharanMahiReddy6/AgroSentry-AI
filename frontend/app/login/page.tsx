@@ -2,14 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { Leaf, Mail, Lock, ArrowRight } from 'lucide-react';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,7 +33,7 @@ export default function LoginPage() {
         alert('Invalid credentials. Please try again.');
         setLoading(false);
       }
-    } catch (error) {
+    } catch {
       alert('Error connecting to backend. Make sure the server is running on port 8000.');
       setLoading(false);
     }
@@ -101,7 +99,7 @@ export default function LoginPage() {
 
           <div className="mt-8 text-center border-t border-gray-50 pt-6">
             <p className="text-sm text-gray-600">
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <Link href="/register" className="text-primary font-bold hover:underline">
                 Create one for free
               </Link>

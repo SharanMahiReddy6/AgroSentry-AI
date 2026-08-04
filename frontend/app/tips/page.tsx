@@ -5,7 +5,6 @@ import {
   Lightbulb, 
   Droplets, 
   ShieldCheck, 
-  Zap, 
   Wind, 
   ArrowRight,
   Plus,

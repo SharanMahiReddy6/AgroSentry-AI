@@ -169,7 +169,7 @@ export default function ScanPage() {
               </div>
               <div>
                 <h2 className="font-bold text-gray-900">Analysis Complete</h2>
-                <p className="text-xs text-muted">Scan ID: #AG-{Math.floor(Math.random()*10000)}</p>
+                <p className="text-xs text-muted">Scan ID: #AG-{result?.scan_id || '8492'}</p>
               </div>
             </div>
             <button onClick={() => {setResult(null); setFile(null); setPreview(null);}} className="btn btn-outline py-2 px-6">

@@ -13,7 +13,6 @@ import {
   X,
   ShieldCheck,
   FlaskConical,
-  Activity,
   Loader2,
   CheckCircle2
 } from 'lucide-react';

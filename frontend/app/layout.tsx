@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Sidebar } from "@/components/Sidebar";
+import LayoutWrapper from "@/components/LayoutWrapper";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -34,5 +34,3 @@ function AppShell({ children }: { children: React.ReactNode }) {
   // For this rebuild, I'll make a client-side layout wrapper.
   return <LayoutWrapper>{children}</LayoutWrapper>;
 }
-
-import LayoutWrapper from "@/components/LayoutWrapper";

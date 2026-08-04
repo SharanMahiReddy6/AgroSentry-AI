@@ -70,6 +70,8 @@ jobs:
       # Stage 5: Deploy to GitHub Pages
       - name: Stage 5 - Setup GitHub Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Stage 5 - Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
