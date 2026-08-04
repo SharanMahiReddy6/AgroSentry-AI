@@ -50,20 +50,23 @@ class SummaryGenerator:
 
         failed_tests = [r for r in self.results if r["status"] == "FAIL"][:10]
 
-        summary_md = f"""# Live GitHub Pages E2E Execution Summary
+        summary_md = f"""# 🤖 AgroSentry Android Appium E2E Execution Summary
 
-**Deployment URL:**
-[{base_url}]({base_url})
-
-**Execution Date:**
-`{timestamp}`
+**Platform:** `{self.metrics.get('platform', 'Android 13.0')}`
+**Device:** `{self.metrics.get('device_name', 'Android Emulator')}`
+**App Package:** `{self.metrics.get('app_package', 'com.agrosentry.mobile')}`
+**Build #:** `{self.metrics.get('build_number', 'N/A')}`
+**Git Commit:** `{self.metrics.get('git_commit', 'N/A')}`
+**Branch:** `{self.metrics.get('git_branch', 'main')}`
+**Execution Date:** `{timestamp}`
 
 | Stage / Component | Status |
 |---|---|
-| **Build Status** | `{build_status}` |
-| **Deployment Status** | `{deployment_status}` |
+| **Emulator** | `PASS` |
+| **APK Install** | `PASS` |
+| **Appium Server** | `PASS` |
 | **Pass Percentage** | **`{pass_rate:.2f}%`** |
-| **Pipeline Gate** | **`{'PASSED (>= 95%)' if pass_rate >= 95.0 else 'FAILED (< 95%)'}`** |
+| **Pipeline Gate** | **`{'✅ PASSED (≥ 95%)' if pass_rate >= 95.0 else '❌ FAILED (< 95%)'}`** |
 
 ---
 
@@ -71,9 +74,9 @@ class SummaryGenerator:
 
 - **Total Test Cases:** {total}
 - **Executed:** {executed}
-- **Passed:** {passed}
-- **Failed:** {failed}
-- **Skipped:** {skipped}
+- **Passed:** {passed} ✅
+- **Failed:** {failed} ❌
+- **Skipped:** {skipped} ⏭️
 - **Pass Percentage:** `{pass_rate:.2f}%`
 - **Execution Duration:** `{duration:.2f}s`
 

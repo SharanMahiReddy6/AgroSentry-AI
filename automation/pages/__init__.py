@@ -9,3 +9,15 @@ from .tips_page import TipsPage
 from .history_page import HistoryPage
 from .profile_page import ProfilePage
 from .admin_page import AdminPage
+
+# Appium Mobile Pages
+from .appium_base_page import AppiumBasePage
+from .appium_auth_page import AppiumAuthPage
+from .appium_dashboard_page import AppiumDashboardPage
+from .appium_scan_page import AppiumScanPage
+from .appium_profile_page import AppiumProfilePage
+from .appium_library_page import AppiumLibraryPage
+from .appium_notifications_page import AppiumNotificationsPage
+from .appium_forms_page import AppiumFormsPage
+from .appium_navigation_page import AppiumNavigationPage
+from .appium_admin_page import AppiumAdminPage

