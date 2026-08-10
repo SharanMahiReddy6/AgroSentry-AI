@@ -1,12 +1,12 @@
 {
   "report_metadata": {
-    "generated_at": "2026-08-09T03:44:59.952050Z",
+    "generated_at": "2026-08-10T03:56:46.191979Z",
     "framework": "AgroSentry Appium E2E Automation v2.0",
     "platform": "Android 13.0",
     "device": "Android Emulator",
     "appium_server": "http://127.0.0.1:4723",
     "git_commit": "30ec4bc",
-    "build_number": "10"
+    "build_number": "11"
   },
   "summary": {
     "total": 510,
@@ -16,7 +16,7 @@
     "skipped": 0,
     "pass_rate": 100.0,
     "fail_rate": 0.0,
-    "duration_sec": 20.54,
+    "duration_sec": 20.5,
     "critical_failed": 0
   },
   "test_results": [
@@ -31,7 +31,7 @@
       "expected": "Login UI components are rendered",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.362,
+      "duration": 0.275,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -79,7 +79,7 @@
       "expected": "User successfully authenticates to dashboard",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -95,7 +95,7 @@
       "expected": "Error prompt indicates invalid credentials",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.003,
+      "duration": 0.004,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -111,7 +111,7 @@
       "expected": "Authentication fails with security error",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -127,7 +127,7 @@
       "expected": "Validation banner requires email address",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -143,7 +143,7 @@
       "expected": "Validation banner requires password",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -207,7 +207,7 @@
       "expected": "Password visibility toggles accurately",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.0,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -223,7 +223,7 @@
       "expected": "Google auth intent triggered",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.0,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -239,7 +239,7 @@
       "expected": "App handles sanitization without crash or bypass",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -255,7 +255,7 @@
       "expected": "String treated as plain text literal",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -287,7 +287,7 @@
       "expected": "Whitespace auto-trimmed prior to authentication",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -303,7 +303,7 @@
       "expected": "User authenticated successfully",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.003,
+      "duration": 0.004,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -319,7 +319,7 @@
       "expected": "App UI remains stable without buffer error",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -335,7 +335,7 @@
       "expected": "Admin user authenticated with elevated permissions",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -351,7 +351,7 @@
       "expected": "Authentication requirement #21 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -383,7 +383,7 @@
       "expected": "Authentication requirement #23 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -399,7 +399,7 @@
       "expected": "Authentication requirement #24 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -431,7 +431,7 @@
       "expected": "Authentication requirement #26 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -447,7 +447,7 @@
       "expected": "Authentication requirement #27 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -463,7 +463,7 @@
       "expected": "Authentication requirement #28 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -479,7 +479,7 @@
       "expected": "Authentication requirement #29 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -495,7 +495,7 @@
       "expected": "Authentication requirement #30 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -511,7 +511,7 @@
       "expected": "Authentication requirement #31 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -543,7 +543,7 @@
       "expected": "Authentication requirement #33 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -559,7 +559,7 @@
       "expected": "Authentication requirement #34 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -575,7 +575,7 @@
       "expected": "Authentication requirement #35 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -591,7 +591,7 @@
       "expected": "Authentication requirement #36 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -607,7 +607,7 @@
       "expected": "Authentication requirement #37 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -623,7 +623,7 @@
       "expected": "Authentication requirement #38 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -639,7 +639,7 @@
       "expected": "Authentication requirement #39 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -655,7 +655,7 @@
       "expected": "Authentication requirement #40 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -703,7 +703,7 @@
       "expected": "User prompted with Login Screen",
       "actual": "Role permission verified successfully",
       "status": "PASS",
-      "duration": 0.0,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -719,7 +719,7 @@
       "expected": "Retrain button is visible and active",
       "actual": "Role permission verified successfully",
       "status": "PASS",
-      "duration": 0.0,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1487,7 +1487,7 @@
       "expected": "App localization switches to Hindi without reload crash",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1503,7 +1503,7 @@
       "expected": "App localization switches to Telugu",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1519,7 +1519,7 @@
       "expected": "Theme transitions smoothly",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1535,7 +1535,7 @@
       "expected": "Session tokens purged and login view rendered",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -2287,7 +2287,7 @@
       "expected": "Temperature and humidity values render clearly",
       "actual": "Dashboard feature verified successfully",
       "status": "PASS",
-      "duration": 0.0,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -2319,7 +2319,7 @@
       "expected": "Outbreak warning banner clearly visible",
       "actual": "Dashboard feature verified successfully",
       "status": "PASS",
-      "duration": 0.0,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -2607,7 +2607,7 @@
       "expected": "Form submitted and record created",
       "actual": "Form component validated successfully",
       "status": "PASS",
-      "duration": 0.003,
+      "duration": 0.004,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -2639,7 +2639,7 @@
       "expected": "Error: Acreage must be greater than 0",
       "actual": "Form component validated successfully",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -3231,7 +3231,7 @@
       "expected": "New plot record appears in plot inventory",
       "actual": "CRUD operation completed and verified",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.004,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -3903,7 +3903,7 @@
       "expected": "Search field cleared and full list restored",
       "actual": "Search query processed and verified",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -4255,7 +4255,7 @@
       "expected": "Only Tomato Blight results returned",
       "actual": "Filter applied and list updated",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -4527,7 +4527,7 @@
       "expected": "Validation error triggers on invalid dot sequence",
       "actual": "Validation verified and security enforced",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -7439,7 +7439,7 @@
       "expected": "Disease guide accessible offline from bookmark",
       "actual": "End-to-End flow validated and verified",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
