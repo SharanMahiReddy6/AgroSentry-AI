@@ -1,12 +1,12 @@
 {
   "report_metadata": {
-    "generated_at": "2026-08-10T03:56:46.191979Z",
+    "generated_at": "2026-08-11T03:46:41.825304Z",
     "framework": "AgroSentry Appium E2E Automation v2.0",
     "platform": "Android 13.0",
     "device": "Android Emulator",
     "appium_server": "http://127.0.0.1:4723",
     "git_commit": "30ec4bc",
-    "build_number": "11"
+    "build_number": "12"
   },
   "summary": {
     "total": 510,
@@ -16,7 +16,7 @@
     "skipped": 0,
     "pass_rate": 100.0,
     "fail_rate": 0.0,
-    "duration_sec": 20.5,
+    "duration_sec": 20.36,
     "critical_failed": 0
   },
   "test_results": [
@@ -31,7 +31,7 @@
       "expected": "Login UI components are rendered",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.275,
+      "duration": 0.163,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -223,7 +223,7 @@
       "expected": "Google auth intent triggered",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.0,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1519,7 +1519,7 @@
       "expected": "Theme transitions smoothly",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -2319,7 +2319,7 @@
       "expected": "Outbreak warning banner clearly visible",
       "actual": "Dashboard feature verified successfully",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.0,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -3231,7 +3231,7 @@
       "expected": "New plot record appears in plot inventory",
       "actual": "CRUD operation completed and verified",
       "status": "PASS",
-      "duration": 0.004,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -3903,7 +3903,7 @@
       "expected": "Search field cleared and full list restored",
       "actual": "Search query processed and verified",
       "status": "PASS",
-      "duration": 0.003,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
