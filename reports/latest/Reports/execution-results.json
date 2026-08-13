@@ -1,12 +1,12 @@
 {
   "report_metadata": {
-    "generated_at": "2026-08-12T04:10:37.472632Z",
+    "generated_at": "2026-08-13T04:16:25.362235Z",
     "framework": "AgroSentry Appium E2E Automation v2.0",
     "platform": "Android 13.0",
     "device": "Android Emulator",
     "appium_server": "http://127.0.0.1:4723",
     "git_commit": "30ec4bc",
-    "build_number": "13"
+    "build_number": "14"
   },
   "summary": {
     "total": 510,
@@ -16,7 +16,7 @@
     "skipped": 0,
     "pass_rate": 100.0,
     "fail_rate": 0.0,
-    "duration_sec": 20.32,
+    "duration_sec": 20.46,
     "critical_failed": 0
   },
   "test_results": [
@@ -31,7 +31,7 @@
       "expected": "Login UI components are rendered",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.1,
+      "duration": 0.246,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -159,7 +159,7 @@
       "expected": "Format validation blocks invalid syntax",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -191,7 +191,7 @@
       "expected": "Registration form is displayed",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -367,7 +367,7 @@
       "expected": "Authentication requirement #22 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -383,7 +383,7 @@
       "expected": "Authentication requirement #23 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.003,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -447,7 +447,7 @@
       "expected": "Authentication requirement #27 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -463,7 +463,7 @@
       "expected": "Authentication requirement #28 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.003,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1503,7 +1503,7 @@
       "expected": "App localization switches to Telugu",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1519,7 +1519,7 @@
       "expected": "Theme transitions smoothly",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -3887,7 +3887,7 @@
       "expected": "No results found placeholder displayed with suggestion tips",
       "actual": "Search query processed and verified",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -3903,7 +3903,7 @@
       "expected": "Search field cleared and full list restored",
       "actual": "Search query processed and verified",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -5807,7 +5807,7 @@
       "expected": "High-priority warning banner displayed",
       "actual": "Notification interaction verified successfully",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
