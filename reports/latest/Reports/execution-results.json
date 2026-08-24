@@ -1,12 +1,12 @@
 {
   "report_metadata": {
-    "generated_at": "2026-08-23T03:05:04.328106Z",
+    "generated_at": "2026-08-24T03:05:47.615210Z",
     "framework": "AgroSentry Appium E2E Automation v2.0",
     "platform": "Android 13.0",
     "device": "Android Emulator",
     "appium_server": "http://127.0.0.1:4723",
     "git_commit": "30ec4bc",
-    "build_number": "24"
+    "build_number": "25"
   },
   "summary": {
     "total": 510,
@@ -16,7 +16,7 @@
     "skipped": 0,
     "pass_rate": 100.0,
     "fail_rate": 0.0,
-    "duration_sec": 20.46,
+    "duration_sec": 20.32,
     "critical_failed": 0
   },
   "test_results": [
@@ -31,7 +31,7 @@
       "expected": "Login UI components are rendered",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.243,
+      "duration": 0.106,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
