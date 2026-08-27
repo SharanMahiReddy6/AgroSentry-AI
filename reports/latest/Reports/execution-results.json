@@ -1,12 +1,12 @@
 {
   "report_metadata": {
-    "generated_at": "2026-08-26T03:07:51.600769Z",
+    "generated_at": "2026-08-27T12:26:47.611899Z",
     "framework": "AgroSentry Appium E2E Automation v2.0",
     "platform": "Android 13.0",
     "device": "Android Emulator",
     "appium_server": "http://127.0.0.1:4723",
     "git_commit": "30ec4bc",
-    "build_number": "27"
+    "build_number": "28"
   },
   "summary": {
     "total": 510,
@@ -16,7 +16,7 @@
     "skipped": 0,
     "pass_rate": 100.0,
     "fail_rate": 0.0,
-    "duration_sec": 20.29,
+    "duration_sec": 20.45,
     "critical_failed": 0
   },
   "test_results": [
@@ -31,7 +31,7 @@
       "expected": "Login UI components are rendered",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.091,
+      "duration": 0.233,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -719,7 +719,7 @@
       "expected": "Retrain button is visible and active",
       "actual": "Role permission verified successfully",
       "status": "PASS",
-      "duration": 0.0,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -2319,7 +2319,7 @@
       "expected": "Outbreak warning banner clearly visible",
       "actual": "Dashboard feature verified successfully",
       "status": "PASS",
-      "duration": 0.0,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
