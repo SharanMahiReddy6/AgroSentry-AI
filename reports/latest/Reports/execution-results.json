@@ -1,12 +1,12 @@
 {
   "report_metadata": {
-    "generated_at": "2026-08-29T08:42:16.076724Z",
+    "generated_at": "2026-08-30T07:57:25.883779Z",
     "framework": "AgroSentry Appium E2E Automation v2.0",
     "platform": "Android 13.0",
     "device": "Android Emulator",
     "appium_server": "http://127.0.0.1:4723",
     "git_commit": "30ec4bc",
-    "build_number": "30"
+    "build_number": "31"
   },
   "summary": {
     "total": 510,
@@ -16,7 +16,7 @@
     "skipped": 0,
     "pass_rate": 100.0,
     "fail_rate": 0.0,
-    "duration_sec": 20.38,
+    "duration_sec": 20.47,
     "critical_failed": 0
   },
   "test_results": [
@@ -31,7 +31,7 @@
       "expected": "Login UI components are rendered",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.158,
+      "duration": 0.261,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -447,7 +447,7 @@
       "expected": "Authentication requirement #27 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.003,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -463,7 +463,7 @@
       "expected": "Authentication requirement #28 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -559,7 +559,7 @@
       "expected": "Authentication requirement #34 satisfied",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.003,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -5791,7 +5791,7 @@
       "expected": "Notification list rendered with unread indicators",
       "actual": "Notification interaction verified successfully",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
