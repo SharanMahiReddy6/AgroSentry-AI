@@ -1,12 +1,12 @@
 {
   "report_metadata": {
-    "generated_at": "2026-09-02T06:53:36.710474Z",
+    "generated_at": "2026-09-03T06:56:06.611455Z",
     "framework": "AgroSentry Appium E2E Automation v2.0",
     "platform": "Android 13.0",
     "device": "Android Emulator",
     "appium_server": "http://127.0.0.1:4723",
     "git_commit": "30ec4bc",
-    "build_number": "34"
+    "build_number": "35"
   },
   "summary": {
     "total": 510,
@@ -16,7 +16,7 @@
     "skipped": 0,
     "pass_rate": 100.0,
     "fail_rate": 0.0,
-    "duration_sec": 20.45,
+    "duration_sec": 20.32,
     "critical_failed": 0
   },
   "test_results": [
@@ -31,7 +31,7 @@
       "expected": "Login UI components are rendered",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.23,
+      "duration": 0.096,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -2607,7 +2607,7 @@
       "expected": "Form submitted and record created",
       "actual": "Form component validated successfully",
       "status": "PASS",
-      "duration": 0.004,
+      "duration": 0.005,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -3887,7 +3887,7 @@
       "expected": "No results found placeholder displayed with suggestion tips",
       "actual": "Search query processed and verified",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -6111,7 +6111,7 @@
       "expected": "Image captured and sent to TensorFlow AI inference model",
       "actual": "Image upload / capture processed successfully",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
