@@ -1,12 +1,12 @@
 {
   "report_metadata": {
-    "generated_at": "2026-09-03T06:56:06.611455Z",
+    "generated_at": "2026-09-04T07:00:53.512609Z",
     "framework": "AgroSentry Appium E2E Automation v2.0",
     "platform": "Android 13.0",
     "device": "Android Emulator",
     "appium_server": "http://127.0.0.1:4723",
     "git_commit": "30ec4bc",
-    "build_number": "35"
+    "build_number": "36"
   },
   "summary": {
     "total": 510,
@@ -16,7 +16,7 @@
     "skipped": 0,
     "pass_rate": 100.0,
     "fail_rate": 0.0,
-    "duration_sec": 20.32,
+    "duration_sec": 20.3,
     "critical_failed": 0
   },
   "test_results": [
@@ -303,7 +303,7 @@
       "expected": "User authenticated successfully",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.004,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -719,7 +719,7 @@
       "expected": "Retrain button is visible and active",
       "actual": "Role permission verified successfully",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.0,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1487,7 +1487,7 @@
       "expected": "App localization switches to Hindi without reload crash",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1503,7 +1503,7 @@
       "expected": "App localization switches to Telugu",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.003,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1535,7 +1535,7 @@
       "expected": "Session tokens purged and login view rendered",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -2319,7 +2319,7 @@
       "expected": "Outbreak warning banner clearly visible",
       "actual": "Dashboard feature verified successfully",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.0,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -2607,7 +2607,7 @@
       "expected": "Form submitted and record created",
       "actual": "Form component validated successfully",
       "status": "PASS",
-      "duration": 0.005,
+      "duration": 0.004,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -3887,7 +3887,7 @@
       "expected": "No results found placeholder displayed with suggestion tips",
       "actual": "Search query processed and verified",
       "status": "PASS",
-      "duration": 0.003,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
