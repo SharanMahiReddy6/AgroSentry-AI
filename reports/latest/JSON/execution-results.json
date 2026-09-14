@@ -1,12 +1,12 @@
 {
   "report_metadata": {
-    "generated_at": "2026-09-13T07:14:48.217679Z",
+    "generated_at": "2026-09-14T07:38:35.581886Z",
     "framework": "AgroSentry Appium E2E Automation v2.0",
     "platform": "Android 13.0",
     "device": "Android Emulator",
     "appium_server": "http://127.0.0.1:4723",
     "git_commit": "30ec4bc",
-    "build_number": "45"
+    "build_number": "46"
   },
   "summary": {
     "total": 510,
@@ -16,7 +16,7 @@
     "skipped": 0,
     "pass_rate": 100.0,
     "fail_rate": 0.0,
-    "duration_sec": 20.29,
+    "duration_sec": 20.32,
     "critical_failed": 0
   },
   "test_results": [
@@ -31,7 +31,7 @@
       "expected": "Login UI components are rendered",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.088,
+      "duration": 0.095,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -207,7 +207,7 @@
       "expected": "Password visibility toggles accurately",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.0,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -303,7 +303,7 @@
       "expected": "User authenticated successfully",
       "actual": "Action executed and verified on Android device",
       "status": "PASS",
-      "duration": 0.003,
+      "duration": 0.004,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1503,7 +1503,7 @@
       "expected": "App localization switches to Telugu",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.002,
+      "duration": 0.003,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -1535,7 +1535,7 @@
       "expected": "Session tokens purged and login view rendered",
       "actual": "Profile action executed and verified",
       "status": "PASS",
-      "duration": 0.001,
+      "duration": 0.002,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -6175,7 +6175,7 @@
       "expected": "Device torch activated for low-light leaf scanning",
       "actual": "Image upload / capture processed successfully",
       "status": "PASS",
-      "duration": 0.0,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
@@ -7455,7 +7455,7 @@
       "expected": "Language preference persisted and applied on restart",
       "actual": "End-to-End flow validated and verified",
       "status": "PASS",
-      "duration": 0.0,
+      "duration": 0.001,
       "error_message": "",
       "stack_trace": "",
       "screenshot": ""
